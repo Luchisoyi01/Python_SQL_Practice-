@@ -3,13 +3,12 @@ import mysql.connector
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="Rhesus@22"
+  password="Rhesus@22",
+  database= "Mydata"
 )
 
 mycursor = mydb.cursor()
 mycursor.execute("CREATE DATABASE Mydata")
 
-mycursor.execute("SHOW TABLES")
-
-for x in mycursor:
-  print(x)
+#mycursor = mydb.cursor()
+mycursor.execute("CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))")
