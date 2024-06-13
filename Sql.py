@@ -9,6 +9,18 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
+#Fetching students who are >22 years
+sql = "SELECT * FROM students WHERE age > 22"
+
+mycursor.execute(sql)
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
+
+
+'''
 #Fecthing all data in the database
 mycursor.execute("SELECT * FROM students")
 
@@ -17,7 +29,7 @@ myresult = mycursor.fetchall()
 for x in myresult:
   print(x)
 
-'''
+
 #inserting values in the database
 sql= "INSERT INTO students (name, age) VALUES (%s , %s)"
 students=[("Julia", 24),
