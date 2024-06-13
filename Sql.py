@@ -4,11 +4,12 @@ mydb = mysql.connector.connect(
   host="localhost",
   user="root",
   password="Rhesus@22",
-  database= "Mydata"
+  database= "mydata"
 )
 
 mycursor = mydb.cursor()
-mycursor.execute("CREATE DATABASE Mydata")
 
-#mycursor = mydb.cursor()
-mycursor.execute("CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))")
+#mycursor.execute("CREATE TABLE Students (name VARCHAR(255), age INTEGER(10))")
+mycursor.execute("SHOW TABLES")
+for TB in mycursor:
+  print(TB)
