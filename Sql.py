@@ -9,18 +9,29 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
+#Fecthing all data in the database
+mycursor.execute("SELECT * FROM students")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
+
+'''
+#inserting values in the database
 sql= "INSERT INTO students (name, age) VALUES (%s , %s)"
-students=[("John", 22),
-          ("Wendy", 20),
-          ("Moraa", 17),
-          ("Joy", 21),
-          ("Ann", 22)]
+students=[("Julia", 24),
+          ("Ben", 25),
+          ("Alice", 17),
+          ("Jay", 21),
+          ("Anita", 23)]
 
 
 mycursor.executemany(sql, students)
 
 mydb.commit()
 
+'''
 #mycursor.execute("ALTER TABLE students ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY")
 #mycursor.execute("CREATE TABLE Students (name VARCHAR(255), age INTEGER(10))")
 #mycursor.execute("SHOW TABLES")
