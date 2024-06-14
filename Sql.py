@@ -9,6 +9,15 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
+#deleting data from the database
+sql = "DELETE FROM students WHERE name = 'John'"
+
+mycursor.execute(sql)
+
+mydb.commit()
+
+print(mycursor.rowcount, "record(s) deleted")
+'''
 #Fetching students who are >22 years
 sql = "SELECT * FROM students WHERE age > 22"
 
@@ -20,7 +29,7 @@ for x in myresult:
   print(x)
 
 
-'''
+
 #Fecthing all data in the database
 mycursor.execute("SELECT * FROM students")
 
