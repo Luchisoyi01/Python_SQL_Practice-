@@ -10,13 +10,14 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 #deleting data from the database
-sql = "DELETE FROM students WHERE name = 'John'"
-
-mycursor.execute(sql)
+sql = "DELETE FROM students WHERE name = %s"
+x = ("Anita",) #how to prevent Sql Injection
+mycursor.execute(sql, x)
 
 mydb.commit()
 
 print(mycursor.rowcount, "record(s) deleted")
+
 '''
 #Fetching students who are >22 years
 sql = "SELECT * FROM students WHERE age > 22"
