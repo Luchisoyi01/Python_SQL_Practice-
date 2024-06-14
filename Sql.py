@@ -10,9 +10,10 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 #deleting data from the database
-sql = "DELETE FROM students WHERE name = %s"
-x = ("Anita",) #how to prevent Sql Injection
-mycursor.execute(sql, x)
+sql = "UPDATE students SET name = 'Joyce' WHERE name = 'Joy'"
+#sql = "DELETE FROM students WHERE name = %s"
+#x = ("Anita",) #how to prevent Sql Injection
+mycursor.execute(sql)
 
 mydb.commit()
 
